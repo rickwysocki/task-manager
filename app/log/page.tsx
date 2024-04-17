@@ -1,3 +1,3 @@
 export default function Log(){
-    return <h1 className="text-2xl">Log</h1>
+    return <h1 className="text-2xl">Daily Log</h1>
 }

@@ -17,9 +17,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className="{inter.className} p-8">
         <nav>
-          <ul>
+          <ul className="flex flex-row gap-x-4">
             <li><Link href="/">Home</Link></li>
             <li><Link href="/tasks">Tasks</Link></li>
             <li><Link href="/log">Daily Log</Link></li>

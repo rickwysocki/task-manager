@@ -8,7 +8,7 @@ export default function Tasks(){
                 <label>Add a Task</label>
                 <input className="bg-neutral-200"></input>
             </form>
-            <h2>Open Tasks</h2>
+            <h2 className="text-lg">Open Tasks</h2>
 
             <ul>
                 <li>Placeholder Task</li>
