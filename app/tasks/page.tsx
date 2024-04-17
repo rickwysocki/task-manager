@@ -1,19 +1,17 @@
-export default function Tasks(){
-    return (
-        <>
-            <h1 className="text-2xl">Tasks</h1>
-                
+import { sql } from "@vercel/postgres";
 
-            <form>
-                <label>Add a Task</label>
-                <input className="bg-neutral-200"></input>
-            </form>
-            <h2 className="text-lg">Open Tasks</h2>
+export default async function Tasks(){
 
-            <ul>
-                <li>Placeholder Task</li>
-            </ul>
-        </>
+  const { rows } = await sql`SELECT * from tasks`;
 
-    )
+  return (
+    <div>
+        <h2 className="text-xl">Tasks</h2>
+      {rows.map((row) => (
+        <div key={row.id}>
+          {row.taskid} - {row.taskdescription}
+        </div>
+      ))}
+    </div>
+  );
 }
