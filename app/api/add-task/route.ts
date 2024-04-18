@@ -3,16 +3,15 @@ import { NextResponse } from 'next/server';
  
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
-  const taskid = searchParams.get('taskid');
-  const taskdescription = searchParams.get('taskdescription');
+  const description = searchParams.get('description');
  
   try {
-    if (!taskid || !taskdescription) throw new Error('TaskID and TaskDescription required');
-    await sql`INSERT INTO tasks (taskid, taskdescription) VALUES (${taskid}, ${taskdescription});`;
+    if (!description) throw new Error('Description required');
+    await sql`INSERT INTO tasks (description) VALUES (${description});`;
   } catch (error) {
     return NextResponse.json({ error }, { status: 500 });
   }
  
-  const pets = await sql`SELECT * FROM tasks;`;
-  return NextResponse.json({ pets }, { status: 200 });
+  const tasks = await sql`SELECT * FROM tasks;`;
+  return NextResponse.json({ tasks }, { status: 200 });
 }
