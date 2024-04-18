@@ -1,5 +1,4 @@
 import { sql } from "@vercel/postgres";
-
 export default async function Tasks(){
 
   const { rows } = await sql`SELECT * from tasks`;
@@ -16,9 +15,9 @@ export default async function Tasks(){
 
         <h2 className="text-xl">Current Tasks</h2>
       {rows.map((row) => (
-        <div key={row.taskid}>
-            <input type="checkbox" id="{row.taskid}" name="{row.taskid}" className="mr-4" />
-            <label htmlFor="{row.taskid}">{row.taskdescription}</label>
+        <div key={row.id}>
+            <input type="checkbox" id="{row.id}" name="{row.id}" className="mr-4" />
+            <label htmlFor="{row.id}">{row.description}</label>
         </div>
       ))}
     </div>
